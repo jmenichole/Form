@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot & Website Features Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background: #f4f6f8;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .submit-btn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 12px;
+      font-size: 16px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bot & Website Features Specification</h1>
+
+  <form action="https://formspree.io/f/xblaznaw" method="POST">
+    
+    <!-- Contact Info -->
+    <div class="section">
+      <h2>👤 Contact Info</h2>
+      <label>Your Name / Discord Handle: 
+        <input type="text" name="name" required>
+      </label>
+      <label>Email: 
+        <input type="email" name="email" required>
+      </label>
+    </div>
+
+    <!-- BOT FEATURES -->
+    <div class="section">
+      <h2>🛠️ Bot Features</h2>
+      <label><input type="checkbox" name="bot_features[]" value="Moderation"> Moderation (mute/ban/kick/logs)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Community Engagement"> Community engagement (games, polls, fun commands)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Leveling"> Leveling system / XP</label>
+      <label><input type="checkbox" name="bot_features[]" value="Economy"> Custom currency / economy (coins, shop, rewards)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Leaderboards"> Leaderboards (activity, XP, points, etc.)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Automated Messages"> Automated messages (welcome, announcements, reminders)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Integrations"> Integration with Twitch/YouTube/Twitter</label>
+      <label><input type="checkbox" name="bot_features[]" value="Admin Tools"> Admin tools (role assignment, channel management)</label>
+      <label><input type="checkbox" name="bot_features[]" value="Dashboard"> Web dashboard (GUI for settings)</label>
+      <label>Other: <input type="text" name="bot_other"></label>
+    </div>
+
+    <!-- WEBSITE FEATURES -->
+    <div class="section">
+      <h2>🌐 Website Features</h2>
+      <label><input type="checkbox" name="website_features[]" value="Landing Page"> Landing page (basic info about brand/community)</label>
+      <label><input type="checkbox" name="website_features[]" value="Leaderboard"> Public leaderboard (stats pulled from Discord bot)</label>
+      <label><input type="checkbox" name="website_features[]" value="Discord Login"> User login with Discord (personal stats/profile)</label>
+      <label><input type="checkbox" name="website_features[]" value="Live Feed"> Live feed (announcements, Twitch streams, server activity)</label>
+      <label><input type="checkbox" name="website_features[]" value="Event Calendar"> Event calendar/schedule</label>
+      <label><input type="checkbox" name="website_features[]" value="Shop"> Shop/donation integration (PayPal, Patreon, merch)</label>
+      <label><input type="checkbox" name="website_features[]" value="Branding"> Branding (logos, colors, theme)</label>
+      <label><input type="checkbox" name="website_features[]" value="Mobile Friendly"> Mobile-friendly design</label>
+      <label><input type="checkbox" name="website_features[]" value="Custom Forms"> Custom forms (signups, feedback, contact)</label>
+      <label><input type="checkbox" name="website_features[]" value="Hosting Me"> Hosting/domain handled by me</label>
+      <label><input type="checkbox" name="website_features[]" value="Hosting You"> Hosting/domain handled by you</label>
+      <label>Other: <input type="text" name="website_other"></label>
+    </div>
+
+    <!-- Notes -->
+    <div class="section">
+      <h2>📝 Additional Notes</h2>
+      <label>
+        <textarea name="notes" rows="4" placeholder="Anything else you’d like to add?"></textarea>
+      </label>
+    </div>
+
+    <button class="submit-btn" type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
