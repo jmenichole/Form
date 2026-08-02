@@ -1,122 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bot & Website Features Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Discord Bot Build Request</title>
   <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-      background: #f4f6f8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      margin: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 720px;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
     }
     h1 {
-      text-align: center;
-      margin-bottom: 30px;
+      margin-top: 0;
+      font-size: 1.75rem;
+      color: #fff;
     }
-    h2 {
-      margin-top: 20px;
-      color: #333;
+    h3 {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      color: #818cf8;
     }
-    .section {
-      margin-bottom: 30px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background: #fff;
+    p.subtitle {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
     }
     label {
       display: block;
-      margin: 8px 0;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
     }
-    input[type="text"], input[type="email"], textarea {
+    input, select, textarea {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #0f172a;
+      color: #fff;
+      font-size: 0.95rem;
+      box-sizing: border-box;
     }
-    textarea {
-      resize: vertical;
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
     }
-    .submit-btn {
-      display: block;
+    .hidden {
+      display: none;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: normal;
+    }
+    .checkbox-item input {
+      width: auto;
+    }
+    button {
       width: 100%;
-      max-width: 300px;
-      margin: 20px auto;
-      padding: 12px;
-      font-size: 16px;
-      background: #4CAF50;
+      padding: 0.85rem;
+      background: var(--accent);
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background 0.2s;
     }
-    .submit-btn:hover {
-      background: #45a049;
+    button:hover {
+      background: var(--accent-hover);
+    }
+    .status {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <h1>Bot & Website Features Specification</h1>
+<div class="container">
+  <h1>🤖 Custom Bot Development Intake</h1>
+  <p class="subtitle">Complete this build spec to receive a custom architecture proposal, integration timeline, and development estimate.</p>
 
-  <form action="https://formspree.io/f/xblaznaw" method="POST">
+  <form id="botIntakeForm">
     
-    <!-- Contact Info -->
-    <div class="section">
-      <h2>👤 Contact Info</h2>
-      <label>Your Name / Discord Handle: 
-        <input type="text" name="name" required>
-      </label>
-      <label>Email: 
-        <input type="email" name="email" required>
-      </label>
+    <h3>👤 Client & Platform Basics</h3>
+    <div class="form-group">
+      <label for="contactName">Your Name / Discord Handle *</label>
+      <input type="text" id="contactName" placeholder="e.g. Askurmameee#0000 or @username" required />
     </div>
 
-    <!-- BOT FEATURES -->
-    <div class="section">
-      <h2>🛠️ Bot Features</h2>
-      <label><input type="checkbox" name="bot_features[]" value="Moderation"> Moderation (mute/ban/kick/logs)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Community Engagement"> Community engagement (games, polls, fun commands)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Leveling"> Leveling system / XP</label>
-      <label><input type="checkbox" name="bot_features[]" value="Economy"> Custom currency / economy (coins, shop, rewards)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Leaderboards"> Leaderboards (activity, XP, points, etc.)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Automated Messages"> Automated messages (welcome, announcements, reminders)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Integrations"> Integration with Twitch/YouTube/Twitter</label>
-      <label><input type="checkbox" name="bot_features[]" value="Admin Tools"> Admin tools (role assignment, channel management)</label>
-      <label><input type="checkbox" name="bot_features[]" value="Dashboard"> Web dashboard (GUI for settings)</label>
-      <label>Other: <input type="text" name="bot_other"></label>
+    <div class="form-group">
+      <label for="platformName">Platform or Site Name *</label>
+      <input type="text" id="platformName" placeholder="e.g. Double Spin / Stake Server" required />
     </div>
 
-    <!-- WEBSITE FEATURES -->
-    <div class="section">
-      <h2>🌐 Website Features</h2>
-      <label><input type="checkbox" name="website_features[]" value="Landing Page"> Landing page (basic info about brand/community)</label>
-      <label><input type="checkbox" name="website_features[]" value="Leaderboard"> Public leaderboard (stats pulled from Discord bot)</label>
-      <label><input type="checkbox" name="website_features[]" value="Discord Login"> User login with Discord (personal stats/profile)</label>
-      <label><input type="checkbox" name="website_features[]" value="Live Feed"> Live feed (announcements, Twitch streams, server activity)</label>
-      <label><input type="checkbox" name="website_features[]" value="Event Calendar"> Event calendar/schedule</label>
-      <label><input type="checkbox" name="website_features[]" value="Shop"> Shop/donation integration (PayPal, Patreon, merch)</label>
-      <label><input type="checkbox" name="website_features[]" value="Branding"> Branding (logos, colors, theme)</label>
-      <label><input type="checkbox" name="website_features[]" value="Mobile Friendly"> Mobile-friendly design</label>
-      <label><input type="checkbox" name="website_features[]" value="Custom Forms"> Custom forms (signups, feedback, contact)</label>
-      <label><input type="checkbox" name="website_features[]" value="Hosting Me"> Hosting/domain handled by me</label>
-      <label><input type="checkbox" name="website_features[]" value="Hosting You"> Hosting/domain handled by you</label>
-      <label>Other: <input type="text" name="website_other"></label>
+    <div class="form-group">
+      <label for="techStack">Platform Tech Stack / Framework (If known):</label>
+      <input type="text" id="techStack" placeholder="e.g. Custom Node.js, PHP, React, WordPress, Laravel..." />
     </div>
 
-    <!-- Notes -->
-    <div class="section">
-      <h2>📝 Additional Notes</h2>
-      <label>
-        <textarea name="notes" rows="4" placeholder="Anything else you’d like to add?"></textarea>
-      </label>
+    <div class="form-group">
+      <label for="memberCount">Discord Server Size / Daily Active Players:</label>
+      <select id="memberCount">
+        <option value="Under 1,000 members">Under 1,000 members</option>
+        <option value="1,000 - 10,000 members">1,000 - 10,000 members</option>
+        <option value="10,000 - 50,000 members">10,000 - 50,000 members</option>
+        <option value="50,000+ members (High Volume Traffic)">50,000+ members (High Volume Traffic)</option>
+      </select>
     </div>
 
-    <button class="submit-btn" type="submit">Submit</button>
+    <h3>🛠️ Core Bot Scope</h3>
+    <div class="form-group">
+      <label for="botType">Select Bot Focus *</label>
+      <select id="botType" required onchange="toggleTrackFields()">
+        <option value="">-- Select Scope --</option>
+        <option value="engagement">MiaCat Style: Games, Trivia, & Engagement Suite</option>
+        <option value="anti_leak">Anti-Leak: Secure Code API & Direct Account Claim</option>
+        <option value="both">Full Suite: Interactive Games + Anti-Leak API System</option>
+      </select>
+    </div>
+
+    <div id="engagementTrack" class="hidden">
+      <h3>🎮 Engagement Features & Games</h3>
+      
+      <div class="form-group">
+        <label>Select Game Modules:</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="MiaKeno / Keno Game"> MiaKeno / Keno</label>
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="Trivia & Quiz Battles"> Trivia / Quiz Battles</label>
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="Chat Rains / Passive Drops"> Chat Rain Drops</label>
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="Leaderboards & XP Systems"> Leaderboards & XP</label>
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="Wheel / Daily Spins"> Daily Wheel Spin</label>
+          <label class="checkbox-item"><input type="checkbox" name="gameFeats" value="Tip & Peer Economy"> Tip / Economy System</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="customGameIdea">Custom Game or Rules Concept (Fill-in-the-blank):</label>
+        <textarea id="customGameIdea" rows="2" placeholder="Describe any unique mini-game or custom game rules you want added..."></textarea>
+      </div>
+    </div>
+
+    <div id="antiLeakTrack" class="hidden">
+      <h3>🛡️ Anti-Leak & API Reward Security</h3>
+      
+      <div class="form-group">
+        <label for="currentMethod">Where are promo codes or rewards currently getting leaked/sniped?</label>
+        <input type="text" id="currentMethod" placeholder="e.g. Streams, Telegram channels, public chats, emails" />
+      </div>
+
+      <div class="form-group">
+        <label>Security & Anti-Leak Modules:</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="securityFeats" value="Discord-to-Site OAuth Account Link"> Discord Account Link</label>
+          <label class="checkbox-item"><input type="checkbox" name="securityFeats" value="Direct Onsite Balance Credit (Zero raw codes)"> Direct API Balance Credit</label>
+          <label class="checkbox-item"><input type="checkbox" name="securityFeats" value="Interactive Captcha Verification"> Dynamic Captcha Challenge</label>
+          <label class="checkbox-item"><input type="checkbox" name="securityFeats" value="User Level / Account Age Gating"> Account Age/Role Gating</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="apiStatus">API & Backend Developer Access Status:</label>
+        <select id="apiStatus">
+          <option value="Yes, full API access / dev team ready">Yes, full API access / dev team ready</option>
+          <option value="In contact with devs, need endpoint specs">In contact with devs, need endpoint specs</option>
+          <option value="Need full custom API endpoints built for site">Need full custom API endpoints built for site</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>🧩 Advanced Bot Add-On Features</h3>
+    <div class="form-group">
+      <label>Select Optional Add-On Functionality:</label>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="VIP Level / Role Sync"> VIP Rank Syncing</label>
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="Live Audit Logging & Alerts Channel"> Admin Audit Logging</label>
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="Automated Streamer / VIP Rains"> Automated Stream Rains</label>
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="Custom Web Dashboard"> Web Admin Dashboard</label>
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="Multi-Language Support"> Multi-Language Support</label>
+        <label class="checkbox-item"><input type="checkbox" name="addOns" value="Auto Moderation / Spam Filter"> Auto-Moderation Engine</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="customAddOn">Specific Custom Add-On Feature (Fill-in-the-blank):</label>
+      <input type="text" id="customAddOn" placeholder="e.g. Integrate with our custom referral database or send daily stats report" />
+    </div>
+
+    <h3>⏱️ Logistics & Timeline</h3>
+    <div class="form-group">
+      <label for="timeline">Target Deployment Timeline</label>
+      <select id="timeline">
+        <option value="ASAP (Within 1 week)">ASAP (Within 1 week)</option>
+        <option value="Standard (2-3 weeks)">Standard (2-3 weeks)</option>
+        <option value="Planning Phase / No strict rush">Planning Phase / No strict rush</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="notes">Additional Requirements or Open Questions:</label>
+      <textarea id="notes" rows="3" placeholder="Tell us anything else about your team, preferred hosting, or specific bot behavior..."></textarea>
+    </div>
+
+    <button type="submit" id="submitBtn">Submit Bot Spec Request</button>
+    <div id="status" class="status"></div>
   </form>
+</div>
+
+<script>
+  // ⚠️ PASTE YOUR DISCORD WEBHOOK URL HERE ⚠️
+  const DISCORD_WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+
+  function toggleTrackFields() {
+    const type = document.getElementById("botType").value;
+    const engagement = document.getElementById("engagementTrack");
+    const antiLeak = document.getElementById("antiLeakTrack");
+
+    if (type === "engagement") {
+      engagement.classList.remove("hidden");
+      antiLeak.classList.add("hidden");
+    } else if (type === "anti_leak") {
+      engagement.classList.add("hidden");
+      antiLeak.classList.remove("hidden");
+    } else if (type === "both") {
+      engagement.classList.remove("hidden");
+      antiLeak.classList.remove("hidden");
+    } else {
+      engagement.classList.add("hidden");
+      antiLeak.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("botIntakeForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const statusDiv = document.getElementById("status");
+    const submitBtn = document.getElementById("submitBtn");
+
+    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL.includes("YOUR_DISCORD_WEBHOOK_URL_HERE")) {
+      statusDiv.style.color = "#f87171";
+      statusDiv.innerText = "Error: Webhook URL is not configured.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending Request...";
+
+    // Core fields
+    const contactName = document.getElementById("contactName").value;
+    const platformName = document.getElementById("platformName").value;
+    const techStack = document.getElementById("techStack").value || "Not specified";
+    const memberCount = document.getElementById("memberCount").value;
+    const botType = document.getElementById("botType").value;
+    const timeline = document.getElementById("timeline").value;
+    const customAddOn = document.getElementById("customAddOn").value || "None";
+    const notes = document.getElementById("notes").value || "None provided";
+
+    // Arrays
+    const gameFeats = Array.from(document.querySelectorAll('input[name="gameFeats"]:checked')).map(c => c.value);
+    const securityFeats = Array.from(document.querySelectorAll('input[name="securityFeats"]:checked')).map(c => c.value);
+    const addOns = Array.from(document.querySelectorAll('input[name="addOns"]:checked')).map(c => c.value);
+
+    // Build Payload Fields
+    const fields = [
+      { name: "👤 Contact", value: contactName, inline: true },
+      { name: "🏢 Platform", value: platformName, inline: true },
+      { name: "💻 Tech Stack", value: techStack, inline: true },
+      { name: "👥 Server / Traffic Scale", value: memberCount, inline: true },
+      { name: "🛠️ Bot Focus", value: botType.toUpperCase(), inline: true },
+      { name: "⏱️ Timeline", value: timeline, inline: true }
+    ];
+
+    if (botType === "engagement" || botType === "both") {
+      const customGame = document.getElementById("customGameIdea").value;
+      fields.push({
+        name: "🎮 Game Modules",
+        value: gameFeats.length > 0 ? gameFeats.join("\n• ") : "None selected",
+        inline: false
+      });
+      if (customGame) fields.push({ name: "💡 Custom Game Concept", value: customGame, inline: false });
+    }
+
+    if (botType === "anti_leak" || botType === "both") {
+      const currentMethod = document.getElementById("currentMethod").value || "Not specified";
+      const apiStatus = document.getElementById("apiStatus").value;
+      
+      fields.push({
+        name: "🛡️ Anti-Leak Features",
+        value: securityFeats.length > 0 ? securityFeats.join("\n• ") : "None selected",
+        inline: false
+      });
+      fields.push({ name: "⚠️ Current Leak Source", value: currentMethod, inline: true });
+      fields.push({ name: "🔌 API Access Level", value: apiStatus, inline: true });
+    }
+
+    if (addOns.length > 0 || customAddOn !== "None") {
+      fields.push({
+        name: "🧩 Add-On Features",
+        value: addOns.length > 0 ? addOns.join("\n• ") : "Standard",
+        inline: false
+      });
+      if (customAddOn !== "None") {
+        fields.push({ name: "✍️ Custom Add-On Idea", value: customAddOn, inline: false });
+      }
+    }
+
+    if (notes !== "None provided") {
+      fields.push({ name: "📌 Additional Notes", value: notes, inline: false });
+    }
+
+    const embedPayload = {
+      embeds: [
+        {
+          title: "🚀 New Custom Bot Intake Submission",
+          color: 6366f1, // Indigo
+          fields: fields,
+          footer: { text: "Custom Bot Intake • Form System" },
+          timestamp: new Date().toISOString()
+        }
+      ]
+    };
+
+    try {
+      const response = await fetch(DISCORD_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(embedPayload)
+      });
+
+      if (response.ok) {
+        statusDiv.style.color = "#4ade80";
+        statusDiv.innerText = "✅ Intake request submitted successfully!";
+        document.getElementById("botIntakeForm").reset();
+        toggleTrackFields();
+      } else {
+        throw new Error("Failed response from Discord webhook.");
+      }
+    } catch (err) {
+      statusDiv.style.color = "#f87171";
+      statusDiv.innerText = "❌ Submission error. Check webhook URL or internet connection.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit Bot Spec Request";
+    }
+  });
+</script>
 
 </body>
 </html>
